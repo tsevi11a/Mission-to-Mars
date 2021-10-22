@@ -21,7 +21,6 @@ def scrape():
    mars = mongo.db.mars #points to our Mongo db
    mars_data = scraping.scrape_all() #variable to hold the newly scraped data -- references the scrape_all function in our scraping.py file
    mars.update({}, mars_data, upsert=True) #update the db, add empty JSON obj, data stored in mars_data, upsert-T indicates to Mongo to create new doc if one doesn't already exist
-   print(mars)
    return redirect('/', code=302) #navigates back to " / " where we can see the updated content
 
 # Tell Flask to run
